@@ -1701,3 +1701,300 @@ h4 {
         margin: 0 auto;
     }
 }
+
+/* ---------- Updates: wave animation patch (append only) ---------- */
+
+/* combined animations:
+   - fadeUp: your existing reveal (keeps)
+   - wave: gentle vertical float to create the wave effect
+*/
+@keyframes wave {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-8px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply fadeUp (existing) then start wave loop */
+.update-card {
+  /* keep existing fadeUp; add wave which starts after the reveal */
+  animation:
+    fadeUp 0.8s cubic-bezier(.22,.9,.33,1) forwards,
+    wave 4.6s ease-in-out 0.9s infinite;
+  will-change: transform;
+  transform-origin: center;
+}
+
+/* Stagger the cards to produce a left→right wave */
+.updates-grid .update-card:nth-child(1) { animation-delay: 0s, 0.00s; }
+.updates-grid .update-card:nth-child(2) { animation-delay: 0.05s, 0.12s; }
+.updates-grid .update-card:nth-child(3) { animation-delay: 0.10s, 0.24s; }
+.updates-grid .update-card:nth-child(4) { animation-delay: 0.15s, 0.36s; }
+.updates-grid .update-card:nth-child(5) { animation-delay: 0.20s, 0.48s; }
+.updates-grid .update-card:nth-child(6) { animation-delay: 0.25s, 0.60s; }
+
+/* Slight scale / shadow accent when card is at upward peak for subtle depth */
+.update-card {
+  transition: box-shadow .28s var(--easing), transform .28s var(--easing);
+}
+@keyframes wave-shadow {
+  0%,50%,100% { box-shadow: 0 25px 60px rgba(0,0,0,0.25); transform: translateY(0) scale(1); }
+  25% { box-shadow: 0 40px 80px rgba(0,0,0,0.28); transform: translateY(-8px) scale(1.006); }
+  75% { box-shadow: 0 18px 44px rgba(0,0,0,0.20); transform: translateY(6px) scale(.998); }
+}
+/* run shadow animation in sync with wave */
+.update-card { animation-name: fadeUp, wave, wave-shadow; animation-duration: 0.8s, 4.6s, 4.6s; animation-timing-function: cubic-bezier(.22,.9,.33,1), ease-in-out, ease-in-out; animation-fill-mode: forwards, both, both; animation-iteration-count: 1, infinite, infinite; animation-delay: 0s, 0.9s, 0.9s; }
+
+/* pause animations on hover/focus for clarity */
+.update-card:hover,
+.update-card:focus-within {
+  animation-play-state: paused; /* pauses all animations on the element */
+  transform: translateY(-10px); /* maintain hover lift */
+  box-shadow: 0 45px 110px rgba(0,0,0,0.30);
+}
+
+/* disable continuous wave on small screens for perf and UX */
+@media (max-width: 768px) {
+  .update-card {
+    animation: fadeUp 0.8s cubic-bezier(.22,.9,.33,1) forwards;
+    transform: none;
+  }
+}
+
+/* respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .update-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* =========================
+   SITE FOOTER — SkillOwl (Enhanced)
+   Full CSS — paste to replace/append your existing footer CSS
+   Uses your :root variables (--bg-1, --bg-2, --accent, etc.)
+   Adds: entrance reveals, subtle motion, hover effects & pulsing chat
+   ======================== */
+
+/* Base footer */
+.site-footer {
+  background: linear-gradient(180deg, var(--bg-2), rgba(2,18,30,0.95));
+  color: rgba(245,248,251,0.95);
+  padding: 48px 20px 30px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* inner grid */
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 28px;
+  align-items: start;
+  transform: translateY(6px);
+  opacity: 0;
+  animation: footer-rise 640ms cubic-bezier(.22,.9,.33,1) 200ms forwards;
+}
+
+/* entrance reveal for inner */
+@keyframes footer-rise {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* brand column */
+.footer-brand .brand-row { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.footer-logo {
+  width:56px; height:56px; border-radius:12px; display:grid; place-items:center;
+  background: linear-gradient(135deg,#ffd27a,#f7b500);
+  color:rgb(0, 97, 27); font-weight:800; font-family:"Playfair Display";
+  box-shadow: 0 8px 26px rgba(0,0,0,0.44);
+  transform: translateY(0);
+  transition: transform .28s var(--easing), box-shadow .28s var(--easing);
+}
+.footer-logo:hover { transform: translateY(-4px) rotate(-2deg); box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
+.footer-brand h3 { margin:0; font-size:18px; color:var(--white); font-weight:800; }
+.footer-brand .sub { font-size:13px; color: var(--accent); margin-top:2px; }
+
+/* brand desc */
+.brand-desc {
+  color: rgba(245,248,251,0.86);
+  margin:12px 0 18px;
+  line-height:1.6;
+  max-width:360px;
+  font-weight:500;
+}
+
+/* socials */
+.socials { display:flex; gap:12px; margin-top:8px; align-items:center; }
+.social {
+  width:44px; height:44px; border-radius:10px; display:grid; place-items:center;
+  background: rgba(255,255,255,0.03); color: rgba(245,248,251,0.95); text-decoration:none;
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform .22s var(--easing), background .22s var(--easing), box-shadow .22s var(--easing);
+  position: relative;
+  overflow: hidden;
+}
+.social svg { display:block; }
+.social::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity .32s var(--easing);
+}
+.social:hover { transform: translateY(-6px) scale(1.04); background: rgba(255,255,255,0.06); box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+.social:hover::after { opacity: 1; }
+
+/* quick links */
+.footer-links h4, .footer-contact h4, .footer-newsletter h4 { color: var(--white); margin:0 0 18px; font-size:16px; font-weight:800; }
+.footer-links ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; }
+.footer-links a {
+  color: rgba(245,248,251,0.85);
+  text-decoration:none;
+  font-weight:600;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color .22s var(--easing);
+}
+.footer-links a::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #f1c65b);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width .28s var(--easing);
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover::after { width: 42%; }
+
+/* contact column */
+.footer-contact address { font-style: normal; color: rgba(245,248,251,0.9); display:flex; flex-direction:column; gap:12px; }
+.contact-line { display:flex; gap:10px; align-items:flex-start; font-size:14px; color: rgba(245,248,251,0.9); }
+.contact-line .ico { display:inline-block; min-width:18px; opacity:0.95; transform: translateY(0); transition: transform .22s var(--easing); }
+.contact-line a { color: rgba(245,248,251,0.95); text-decoration:none; font-weight:700; }
+
+/* newsletter */
+.footer-newsletter .news-desc { color: rgba(245,248,251,0.85); margin-bottom:12px; max-width:320px; }
+.subscribe { display:flex; gap:12px; align-items:center; margin-top:6px; }
+.subscribe .email {
+  flex:1; padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02); color: var(--white); font-weight:600;
+  transition: box-shadow .22s var(--easing), transform .22s var(--easing);
+  outline: none;
+}
+.subscribe .email::placeholder { color: rgba(245,248,251,0.58); font-weight:500; }
+.subscribe .email:focus { box-shadow: 0 10px 30px rgba(213,162,59,0.06); transform: translateY(-2px); border-color: rgba(215,162,58,0.18); }
+
+/* subscribe button */
+.btn-sub {
+  background: linear-gradient(90deg,var(--accent), #f1c65b);
+  color:#072; border:none; padding:12px 18px; border-radius:8px;
+  font-weight:800; cursor:pointer; display:inline-flex; gap:10px; align-items:center;
+  box-shadow: 0 10px 28px rgba(213,162,59,0.08);
+  transition: transform .22s var(--easing), box-shadow .22s var(--easing), filter .22s var(--easing);
+}
+.btn-sub .send { transform: translateY(0); transition: transform .28s var(--easing) ease; }
+.btn-sub:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 26px 64px rgba(213,162,59,0.14); filter:brightness(1.02); }
+.btn-sub:hover .send { transform: translateY(-3px) rotate(-6deg); }
+
+/* footer bottom row */
+.footer-bottom {
+  max-width:1180px;
+  margin: 26px auto 0;
+  padding-top:18px;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  display:flex; align-items:center; justify-content:space-between;
+  color: rgba(245,248,251,0.65); font-size:14px;
+  gap: 12px;
+}
+.footer-bottom .made { white-space:nowrap; display:flex; align-items:center; gap:8px; }
+.footer-bottom .made .heart { color: #e55b7a; margin: 0 6px; transform-origin:center; transition: transform .3s var(--easing); }
+.footer-bottom .made .heart.pulse { animation: heart-pulse 1.2s ease-in-out infinite; }
+
+/* heart pulse */
+@keyframes heart-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+
+/* floating chat buttons */
+.floating-chats-footer {
+  position: fixed; right: 18px; bottom: 86px; display:flex; flex-direction:column; gap:14px; z-index:12000;
+}
+.floating-chats-footer .fc {
+  width:58px; height:58px; border-radius:50%; border:none; display:grid; place-items:center;
+  box-shadow: 0 14px 40px rgba(2,10,20,0.3); cursor:pointer; font-size:20px;
+  background: rgba(255,255,255,0.03); color: var(--white);
+  transition: transform .22s var(--easing), box-shadow .22s var(--easing), filter .22s var(--easing);
+}
+.floating-chats-footer .fc.small { width:58px; height:58px; background: rgba(255,255,255,0.03); }
+.floating-chats-footer .fc.big {
+  width:74px; height:74px; background: linear-gradient(135deg,var(--accent), #d7a636);
+  color:#072; border: 4px solid rgba(255,255,255,0.06);
+  box-shadow: 0 22px 56px rgba(0,0,0,0.3);
+  transform-origin:center;
+  animation: float-pulse 3.8s ease-in-out infinite;
+}
+/* small red badge for notifications (use .fc.big::after on live sites) */
+.floating-chats-footer .fc.big::after {
+  content: "";
+  position: absolute;
+  right: 8px; top: 8px;
+  width:12px; height:12px; border-radius:999px; background: #e84b4b; box-shadow: 0 4px 10px rgba(232,75,75,0.18);
+}
+
+/* subtle float */
+@keyframes float-pulse {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* link hover micro interactions for contact lines */
+.contact-line a:hover { text-decoration: underline; color: var(--accent); transform: translateY(-2px); transition: color .18s var(--easing), transform .18s var(--easing); }
+
+/* responsiveness */
+@media (max-width: 1024px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap:22px; }
+  .brand-desc { max-width: 100%; }
+  .footer-bottom { flex-direction: column; gap:10px; text-align:center; }
+  .floating-chats-footer { right: 14px; bottom: 66px; }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr; gap:18px; padding-bottom: 8px; }
+  .subscribe { flex-direction: column; align-items: stretch; }
+  .btn-sub { width:100%; justify-content:center; }
+  .footer-bottom { padding-top: 16px; }
+  .floating-chats-footer { right: 12px; bottom: 56px; }
+  .social { width:44px; height:44px; }
+  .footer-brand .brand-row { gap:10px; }
+}
+
+/* tiny devices */
+@media (max-width:420px) {
+  .footer-logo { width:48px; height:48px; }
+  .brand-desc { font-size:14px; }
+  .footer-bottom { font-size:13px; padding-top:12px; }
+}
+
+/* accessibility — reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .footer-inner, .footer-logo, .social, .btn-sub, .floating-chats-footer .fc, .footer-bottom .made .heart { transition: none !important; animation: none !important; }
+}
+
+/* optional utilities (if you want to add pulsing heart on subscribe success) */
+.footer-bottom .made .heart.animate { animation: heart-pulse 900ms ease-in-out 2; }
