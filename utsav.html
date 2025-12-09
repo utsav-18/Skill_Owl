@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SkillOwl — Corporate Skill Development</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="utsav.css">
+
+  
+</head>
+<body>
+  <!-- particle canvas -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+    <div class="logo-section">
+        <img src="images/skilllogo.jpeg" alt="SkillOwl Logo" class="logo-img">
+        <div class="logo-text">
+            <h3>SkillOwl</h3>
+            <p>Learning that Soars</p>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU TOGGLE (CSS ONLY) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+    </label>
+
+    <nav class="nav-links">
+        <a href="utsav.html">Home</a>
+        <a href="contact.html">Book Call</a>
+       
+        <a href="#" class="nav-phone">+91 98765 43210</a>
+    </nav>
+
+    <a class="btn-gold desktop-btn cta-btn" id="book" href="contact.html">Book Consultation</a>
+</header>
+
+
+  <main class="hero" id="home">
+    <!-- left column: hero content -->
+    <section class="hero-left reveal" data-reveal="left">
+      <div class="badge">Trusted by Leading Organizations</div>
+
+      <h1>
+        India's<br>
+        Corporate<br>
+        <span class="accent-word">Skill</span><br>
+        Development Partner
+      </h1>
+
+      <p class="lead">
+        <span id="typed-subtitle">Empowering organizations with expert-led training programs.</span>
+      </p>
+
+      <!-- Book button as real anchor like your example -->
+      <a class="cta-btn" id="book" href="contact.html" role="button" aria-label="Book Consultation — Discovery Call">
+        Book Consultation — Discovery Call
+      </a>
+
+      <div class="metrics">
+        <div class="metric">
+          500+ <span>Workshops</span>
+        </div>
+        <div class="metric">
+          95% <span>Satisfaction</span>
+        </div>
+        <div class="metric">
+          40+ <span>Corporate Clients</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- right column: image + profile -->
+    <aside class="hero-right reveal" data-reveal="right" aria-hidden="true">
+      <div class="image-frame" id="imageFrame">
+        <img src="images/mam1.png" alt="Trainer portrait" id="heroImg">
+        <div class="profile-card">
+          <div class="profile-meta">
+            <div class="name">Dr. Saumya Tripathi</div>
+            <div class="title">Leadership Development Expert</div>
+            <div class="small">15+ years transforming corporate India</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+
+<!-- ABOUT SECTION -->
+<section class="about" aria-labelledby="about-title">
+  <div class="about-bg-glow" aria-hidden="true"></div>
+
+  <div class="meet-chip fade-up" style="--delay:0s">MEET YOUR EXPERT</div>
+
+  <h2 id="about-title" class="fade-up" style="--delay:.05s">
+    Discover the <span>SkillOwl Difference</span>
+  </h2>
+
+  <p class="fade-up" style="--delay:.12s">
+    Learn how Dr. Saumya Tripathi is revolutionizing corporate training across India.
+  </p>
+
+  <div class="about-card fade-up" style="--delay:.2s">
+    <div class="about-image-wrapper" aria-hidden="false">
+      <img src="images/mam2.png" alt="Dr. Saumya Tripathi — Expert" class="about-img">
+    </div>
+
+    <div class="about-stats">
+      <div class="stat-item fade-up" style="--delay:.28s">
+        <h3 data-target="15">0+</h3>
+        <p>Years Industry Experience</p>
+      </div>
+
+      <div class="stat-item fade-up" style="--delay:.34s">
+        <h3 data-target="100">0+</h3>
+        <p>Companies Successfully Trained</p>
+      </div>
+
+      <div class="stat-item fade-up" style="--delay:.40s">
+        <h3 data-target="4.9" data-fixed="1">0</h3>
+        <p>Client Satisfaction (avg)</p>
+      </div>
+
+      <!-- countdown holder (JS will populate) -->
+      <div class="about-countdown fade-up" style="--delay:.46s" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="impact">
+    <div class="impact-glow"></div>
+
+    <h2 class="fade-up">Measurable <span>Impact & Achievements</span></h2>
+
+    <div class="impact-grid">
+        <div class="impact-card fade-up delay-1">
+            <h3>30%</h3>
+            <p>Turnover Reduction</p>
+        </div>
+
+        <div class="impact-card fade-up delay-2">
+            <h3>85%</h3>
+            <p>Satisfaction Rate</p>
+        </div>
+
+        <div class="impact-card fade-up delay-3">
+            <h3>40%</h3>
+            <p>Productivity Boost</p>
+        </div>
+
+        <div class="impact-card fade-up delay-4">
+            <h3>500+</h3>
+            <p>Employees Trained</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-slider">
+    <h2>What <span>Leaders Say</span></h2>
+
+    <div class="slider-container">
+
+        <div class="slide">
+            <div class="quote-icon">❝</div>
+            <div class="slide-content">
+                <img src="images/testimonial1.jpg" class="profile-img">
+                <div>
+                    <p>"SkillOwl's training helped us reduce interdepartmental friction by 60%. The practical frameworks are now part of our SOPs."</p>
+                    <h4>Amit Patel</h4>
+                    <p class="designation">Chief Operating Officer</p>
+                    <p class="company">Wipro Limited</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="quote-icon">❝</div>
+            <div class="slide-content">
+                <img src="images/testimonial2.jpg" class="profile-img">
+                <div>
+                    <p>"Dr. Tripathi's leadership program transformed our middle management. We saw a 35% improvement in performance and collaboration."</p>
+                    <h4>Rajesh Kumar</h4>
+                    <p class="designation">VP Human Resources</p>
+                    <p class="company">Infosys Technologies</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="quote-icon">❝</div>
+            <div class="slide-content">
+                <img src="images/testimonial3.jpg" class="profile-img">
+                <div>
+                    <p>"The communication workshop was transformative. Our client relationships improved dramatically—28% increase in retention."</p>
+                    <h4>Priya Sharma</h4>
+                    <p class="designation">Director of Sales</p>
+                    <p class="company">HCL Technologies</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="updates-section">
+    <div class="updates-header">
+        <span class="badge">STAY UPDATED</span>
+        <h2>Upcoming Updates & <span>Announcements</span></h2>
+        <p>Stay informed about our latest programs, achievements, and industry insights</p>
+    </div>
+
+    <div class="updates-grid">
+
+        <!-- CARD 1 -->
+        <div class="update-card">
+            <div class="icon-box event">
+                <i class="icon-calendar">📅</i>
+            </div>
+            <p class="date">Jan 20, 2024</p>
+            <h3>Free Webinar: Communication Strategies for Hybrid Teams</h3>
+            <p class="desc">Join Dr. Saumya Tripathi for a complimentary webinar on effective communication strategies for hybrid teams.</p>
+            <span class="tag event">Event</span>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="update-card">
+            <div class="icon-box event">
+                <i class="icon-calendar">📅</i>
+            </div>
+            <p class="date">Jan 15, 2024</p>
+            <h3>New Leadership Development Program Launch</h3>
+            <p class="desc">Introducing our comprehensive 6-week Leadership Excellence Program crafted for mid-level managers.</p>
+            <span class="tag event">Event</span>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="update-card">
+            <div class="icon-box news">
+                <i class="icon-growth">📈</i>
+            </div>
+            <p class="date">Jan 12, 2024</p>
+            <h3>Partnership with IIM Bangalore for Executive Program</h3>
+            <p class="desc">SkillOwl partners with IIM Bangalore to co-create an advanced executive development program.</p>
+            <span class="tag news">News</span>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="update-card">
+            <div class="icon-box achievement">
+                <i class="icon-award">🏅</i>
+            </div>
+            <p class="date">Jan 10, 2024</p>
+            <h3>SkillOwl Achieves 95% Client Retention Rate</h3>
+            <p class="desc">We achieved a 95% client retention rate in 2023, reflecting commitment to excellence.</p>
+            <span class="tag achievement">Achievement</span>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="update-card">
+            <div class="icon-box news">
+                <i class="icon-growth">📈</i>
+            </div>
+            <p class="date">Jan 8, 2024</p>
+            <h3>Featured in Economic Times – Corporate Training Trends</h3>
+            <p class="desc">Dr. Tripathi’s insights on the future of workplace learning featured in Economic Times.</p>
+            <span class="tag news">News</span>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="update-card">
+            <div class="icon-box achievement">
+                <i class="icon-award">🏅</i>
+            </div>
+            <p class="date">Jan 5, 2024</p>
+            <h3>500+ Professionals Milestone Achieved</h3>
+            <p class="desc">We have successfully trained over 500 professionals across 100+ organizations.</p>
+            <span class="tag achievement">Achievement</span>
+        </div>
+
+    </div>
+</section>
+
+
+
+  <!-- floating chat anchors (real links) -->
+  <div class="floating-chats">
+    <a class="chat-btn small" id="quickChat" href="contact.html" aria-label="Quick Message">💬</a>
+    <a class="chat-btn" id="consult" href="contact.html" aria-label="Start Consultation">🔔</a>
+  </div>
+
+  <script src="utsav.js"></script>
+</body>
+</html>
