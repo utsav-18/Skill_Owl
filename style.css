@@ -169,7 +169,7 @@ h1{
 /* floating chat (anchors styled like buttons) */
 .floating-chats{position:fixed;right:28px;bottom:28px;display:flex;flex-direction:column;gap:12px;z-index:9}
 .chat-btn{
-  width:62px;height:62px;border-radius:999px;border:none;background:linear-gradient(180deg,var(--accent), #f1c65b);
+  width:62px;height:62px;border-radius:999px;border:none;background:linear-gradient(180deg,white, #f7f7f7);
   box-shadow:0 18px 40px rgba(2,10,20,0.45);cursor:pointer;font-size:22px;
   display:flex;align-items:center;justify-content:center;color:#072;position:relative;overflow:hidden;
   transition:transform .28s var(--easing), box-shadow .28s var(--easing);
