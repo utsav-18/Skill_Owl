@@ -2251,3 +2251,51 @@ h4 {
   }
 }
 
+.video-wrapper {
+  position: relative;
+}
+
+.sound-toggle {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sound-toggle:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.video-wrapper {
+  position: relative;
+}
+
+.sound-toggle {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: 0.25s ease;
+}
+
+.sound-toggle:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.sound-toggle .icon {
+  width: 22px;
+  height: 22px;
+}
+
