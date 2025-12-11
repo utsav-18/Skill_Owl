@@ -67,54 +67,60 @@
 </header>
 
 
-  <main class="hero" id="home">
-    <!-- left column: hero content -->
-    <section class="hero-left reveal" data-reveal="left">
-      <div class="badge">Trusted by Leading MNCs</div>
+<main class="hero" id="home">
+  <!-- left column: hero content -->
+  <section class="hero-left reveal" data-reveal="left">
+    <div class="badge">Trusted by Leading MNCs</div>
 
-      <h1>
-        India's<div class="spacer"></div>
-        Corporate<div class="spacer"></div>
-        <div class="accent-word ">Skill</div><div class="spacer"></div>
-        Development Partner
-      </h1>
+    <h1>
+      India's<div class="spacer"></div>
+      Corporate<div class="spacer"></div>
+      <div class="accent-word">Skill</div><div class="spacer"></div>
+      Development Partner
+    </h1>
 
-      <p class="lead">
-        <span id="typed-subtitle">Empowering organizations with expert-led training programs.</span>
-      </p>
+    <p class="lead">
+      <span id="typed-subtitle">Empowering organizations with expert-led training programs.</span>
+    </p>
 
-      <!-- Book button as real anchor like your example -->
-      <a class="cta-btn" id="book" href="contact.html" role="button" aria-label="Book Consultation — Discovery Call">
-        Book Consultation — Discovery Call
-      </a>
+    <!-- Book button -->
+    <a class="cta-btn" id="book" href="contact.html" role="button" aria-label="Book Consultation — Discovery Call">
+      Book Consultation — Discovery Call
+    </a>
 
-      <div class="metrics">
-        <div class="metric">
-          500+ <span>Workshops</span>
-        </div>
-        <div class="metric">
-          95% <span>Satisfaction</span>
-        </div>
-        <div class="metric">
-          40+ <span>Corporate Clients</span>
+    <div class="metrics">
+      <div class="metric">
+        500+ <span>Workshops</span>
+      </div>
+      <div class="metric">
+        95% <span>Satisfaction</span>
+      </div>
+      <div class="metric">
+        40+ <span>Corporate Clients</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- right column: image + profile -->
+  <aside class="hero-right reveal" data-reveal="right" aria-hidden="true">
+    <div class="image-frame" id="imageFrame">
+
+      <!-- ⭐️ REPLACED IMG WITH VIDEO ⭐️ -->
+      <video id="heroVideo" autoplay muted loop playsinline>
+        <source src="videos/video1.mp4" type="video/mp4">
+      </video>
+
+      <div class="profile-card">
+        <div class="profile-meta">
+          <div class="name"><p>Dr. Saumya Tripathi</p></div>
+          <div class="title">Leadership Development Expert</div>
+          <div class="small"><p>15+ years transforming corporate India</p></div>
         </div>
       </div>
-    </section>
 
-    <!-- right column: image + profile -->
-    <aside class="hero-right reveal" data-reveal="right" aria-hidden="true">
-      <div class="image-frame" id="imageFrame">
-        <img src="images/mam1.png" alt="Trainer portrait" id="heroImg">
-        <div class="profile-card">
-          <div class="profile-meta">
-            <div class="name"><p>Dr. Saumya Tripathi</p></div>
-            <div class="title">Leadership Development Expert</div>
-            <div class="small"><p> 15+ years transforming corporate India</p></div>
-          </div>
-        </div>
-      </div>
-    </aside>
-  </main>
+    </div>
+  </aside>
+</main>
 
 
 <!-- ABOUT SECTION -->
@@ -132,8 +138,14 @@
   </p>
 
   <div class="about-card fade-up" style="--delay:.2s">
+
     <div class="about-image-wrapper" aria-hidden="false">
-      <img src="images/mam2.png" alt="Dr. Saumya Tripathi — Expert" class="about-img">
+
+      <!-- ⭐ Replaced IMG with VIDEO ⭐ -->
+      <video class="about-video" autoplay muted loop playsinline>
+        <source src="videos/video2.mp4" type="video/mp4">
+      </video>
+
     </div>
 
     <div class="about-stats">
@@ -152,7 +164,6 @@
         <p>Client Satisfaction (avg)</p>
       </div>
 
-      <!-- countdown holder (JS will populate) -->
       <div class="about-countdown fade-up" style="--delay:.46s" aria-live="polite"></div>
     </div>
   </div>

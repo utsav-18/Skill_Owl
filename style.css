@@ -2299,3 +2299,38 @@ h4 {
   height: 22px;
 }
 
+#heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+.image-frame {
+  height: 500px;
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+#heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px; /* adjust height as needed */
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.about-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
