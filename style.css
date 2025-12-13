@@ -2307,8 +2307,8 @@ h4 {
   display: block;
 }
 .image-frame {
-  height: 500px;
-  max-height: 500px;
+  height: 550px;
+  max-height: 550px;
   overflow: hidden;
   border-radius: 28px;
 }
