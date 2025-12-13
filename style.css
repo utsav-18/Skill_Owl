@@ -2382,3 +2382,49 @@ h4 {
   height: 32px;
 }
 
+.floating-chats {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+
+.chat-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.chat-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 12px 28px rgba(0,0,0,.3);
+}
+
+/* Icon size */
+.social-icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* Brand Colors */
+.whatsapp-btn { background:#25D366; }
+.insta-btn {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.fb-btn { background:#1877F2; }
+.linkedin-btn { background:#0A66C2; }
+
+/* Small quick chat */
+.chat-btn.small {
+  font-size: 22px;
+  background:#0A2540;
+  color:#fff;
+}
