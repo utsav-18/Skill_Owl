@@ -2428,3 +2428,172 @@ h4 {
   background:#0A2540;
   color:#fff;
 }
+
+/* SECTION BACKGROUND */
+.faq-dark {
+  padding: 90px 20px;
+  background: radial-gradient(circle at top, #0b2a4a, #06172c);
+  color: #ffffff;
+}
+
+/* WRAPPER */
+.faq-wrap {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* HEADING */
+.faq-heading {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.faq-heading span {
+  color: #d4af37;
+}
+
+.faq-sub {
+  text-align: center;
+  color: #b7c3d6;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+/* ITEM */
+.faq-item {
+  margin-bottom: 18px;
+}
+
+.faq-item input {
+  display: none;
+}
+
+/* QUESTION CARD */
+.faq-q {
+  background: linear-gradient(145deg, #0f2f55, #0a2341);
+  padding: 22px 26px;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  transition: all 0.35s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* GOLD GLOW ON HOVER */
+.faq-q:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.6),
+    0 0 0 1.5px rgba(212,175,55,0.45);
+}
+
+/* PLUS ICON */
+.faq-q span {
+  font-size: 26px;
+  color: #d4af37;
+  transition: transform 0.3s ease;
+}
+
+/* ANSWER */
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 26px;
+  background: #081c36;
+  color: #d6deeb;
+  font-size: 15.5px;
+  line-height: 1.7;
+  border-radius: 0 0 16px 16px;
+  transition: max-height 0.45s ease, padding 0.45s ease;
+}
+
+/* OPEN STATE */
+.faq-item input:checked ~ .faq-a {
+  max-height: 220px;
+  padding: 18px 26px 22px;
+}
+
+.faq-item input:checked + .faq-q span {
+  transform: rotate(45deg);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .faq-heading {
+    font-size: 28px;
+  }
+  .faq-q {
+    font-size: 16px;
+  }
+}
+/* QUESTION CARD – BASE */
+.faq-q {
+  background: linear-gradient(145deg, #0f2f55, #0a2341);
+  padding: 22px 26px;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* LIGHT SWEEP EFFECT */
+.faq-q::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(212,175,55,0.25),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+/* HOVER MAGIC */
+.faq-q:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 30px 65px rgba(0,0,0,0.75),
+    0 0 0 1.5px rgba(212,175,55,0.5),
+    inset 0 0 25px rgba(212,175,55,0.08);
+}
+
+/* MOVE LIGHT */
+.faq-q:hover::before {
+  left: 120%;
+}
+
+/* ICON PULSE */
+.faq-q:hover span {
+  transform: rotate(90deg) scale(1.15);
+}
+/* ACTIVE / OPEN CARD */
+.faq-item input:checked + .faq-q {
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.8),
+    0 0 0 2px rgba(212,175,55,0.65),
+    inset 0 0 35px rgba(212,175,55,0.12);
+}
+
+.faq-item input:checked + .faq-q span {
+  transform: rotate(45deg) scale(1.2);
+}
