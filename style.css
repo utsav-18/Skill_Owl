@@ -3006,3 +3006,172 @@ h4 {
   filter: blur(0);
   opacity: 1;
 }
+/* ===============================
+   IMPACT SECTION
+================================ */
+.impact {
+  position: relative;
+  padding: 100px 8%;
+  background: radial-gradient(circle at top, #0f2027, #020617);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Background glow */
+.impact-glow {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(255,193,7,.15), transparent 60%);
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* Heading */
+.impact h2 {
+  position: relative;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 60px;
+  z-index: 1;
+}
+
+.impact h2 span {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid */
+.impact-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  z-index: 1;
+}
+
+/* ===============================
+   IMPACT CARD
+================================ */
+.impact-card {
+  position: relative;
+  padding: 50px 30px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all .5s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Gradient shine overlay */
+.impact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.25),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: .6s;
+}
+
+/* Glow border */
+.impact-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #facc15, #f59e0b, #facc15);
+  opacity: 0;
+  z-index: -1;
+  transition: .4s;
+}
+
+/* Hover effects */
+.impact-card:hover {
+  transform: translateY(-16px) scale(1.03);
+  box-shadow: 0 30px 80px rgba(250,204,21,.25);
+}
+
+.impact-card:hover::before {
+  transform: translateX(100%);
+}
+
+.impact-card:hover::after {
+  opacity: 1;
+}
+
+/* Number */
+.impact-card h3 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #facc15;
+  margin-bottom: 12px;
+  transition: transform .4s ease;
+}
+
+.impact-card:hover h3 {
+  transform: scale(1.15);
+}
+
+/* Text */
+.impact-card p {
+  font-size: 1.1rem;
+  letter-spacing: .5px;
+  color: #e5e7eb;
+  opacity: .9;
+}
+
+/* ===============================
+   FADE-UP ANIMATION
+================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp .8s ease forwards;
+}
+
+.delay-2 { animation-delay: .2s; }
+.delay-3 { animation-delay: .4s; }
+.delay-4 { animation-delay: .6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+  .impact {
+    padding: 70px 6%;
+  }
+  .impact-card {
+    padding: 40px 25px;
+  }
+}
+.impact {
+  background: transparent !important;
+}
+.impact::before,
+.impact::after {
+  content: none !important;
+  display: none !important;
+}
+.impact,
+.impact * {
+  background-color: transparent;
+}
+.impact-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+}
