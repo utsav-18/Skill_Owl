@@ -3175,3 +3175,22 @@ h4 {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(14px);
 }
+/* LOGO SIZE INCREASE */
+.logo-img{
+  height: 90px;        /* increase size */
+  width: auto;         /* keep aspect ratio */
+}
+
+/* Bigger logo on desktop */
+@media (min-width: 992px){
+  .logo-img{
+    height: 90px;      /* desktop size */
+  }
+}
+
+/* Mobile safe size */
+@media (max-width: 768px){
+  .logo-img{
+    height: 60px;      /* mobile size */
+  }
+}
