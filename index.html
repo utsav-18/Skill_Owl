@@ -43,82 +43,87 @@
 
 <!-- NAVIGATION -->
 <header class="navbar">
-    <div class="logo-section">
-        <img src="images/skillowlwebsitelogo.png" alt="SkillOwl Logo" class="logo-img">
-       
-    </div>
+  <div class="logo-section">
+      <a href="index.html" class="logo-link">
+          <img src="images/skillowlwebsitelogo.png" alt="SkillOwl Logo" class="logo-img">
+      </a>
+  </div>
 
-    <!-- MOBILE MENU TOGGLE (CSS ONLY) -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="hamburger">
-        <span></span><span></span><span></span>
-    </label>
+  <!-- MOBILE MENU TOGGLE (CSS ONLY) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <label for="nav-toggle" class="hamburger">
+      <span></span><span></span><span></span>
+  </label>
 
-    <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="contact.html">Book Call</a>
-       
-    <a href="tel:+918400666686" class="nav-phone">+91 8400666686</a></nav>
+  <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Book Call</a>
+      <a href="tel:+918400666686" class="nav-phone">+91 8400666686</a>
+  </nav>
 
-    <a class="btn-gold desktop-btn cta-btn" id="book" href="contact.html">Book Consultation</a>
+  <a class="btn-gold desktop-btn cta-btn" id="book" href="contact.html">
+      Book Consultation
+  </a>
 </header>
 
 
+
 <main class="hero" id="home">
-  <!-- left column: hero content -->
-  <section class="hero-left reveal" data-reveal="left">
+
+  <!-- LEFT -->
+  <section class="hero-left">
     <div class="badge">Trusted by Leading MNCs</div>
 
     <h1>
       India's<div class="spacer"></div>
       Corporate<div class="spacer"></div>
-      <div class="accent-word">Skill</div><div class="spacer"></div>
+      <span class="accent-word">Skill</span><div class="spacer"></div>
       Development Partner
     </h1>
 
     <p class="lead">
-      <span id="typed-subtitle">Empowering organizations with expert-led training programs.</span>
+      Empowering organizations with expert-led training programs.
     </p>
 
-    <!-- Book button -->
-    <a class="cta-btn" id="book" href="contact.html" role="button" aria-label="Book Consultation — Discovery Call">
+    <a class="cta-btn" href="contact.html">
       Book Consultation — Discovery Call
     </a>
 
     <div class="metrics">
-      <div class="metric">
-        500+ <span>Workshops</span>
-      </div>
-      <div class="metric">
-        95% <span>Satisfaction</span>
-      </div>
-      <div class="metric">
-        40+ <span>Corporate Clients</span>
-      </div>
+      <div class="metric">500+ <span>Workshops</span></div>
+      <div class="metric">95% <span>Satisfaction</span></div>
+      <div class="metric">40+ <span>Corporate Clients</span></div>
     </div>
   </section>
 
-  <!-- right column: image + profile -->
-  <aside class="hero-right reveal" data-reveal="right" aria-hidden="true">
-    <div class="image-frame" id="imageFrame">
+  <!-- RIGHT -->
+  <aside class="hero-right">
+    <div class="image-frame">
 
-      <!-- ⭐️ REPLACED IMG WITH VIDEO ⭐️ -->
-      <video id="heroVideo" autoplay muted loop playsinline>
-        <source src="videos/video3.mp4" type="video/mp4">
-      </video>
+      <!-- IMAGE -->
+      <img
+        src="images/mam1.png"
+        alt="Dr. Saumya Tripathi – Corporate Training Expert"
+        class="hero-image"
+      >
 
+      <!-- PROFILE CARD -->
       <div class="profile-card">
         <div class="profile-meta">
-          <div class="name"><p>Dr. Saumya Tripathi</p></div>
+          <div class="name">
+            <p>Dr. Saumya Tripathi</p>
+          </div>
           <div class="title">Leadership Development Expert</div>
-          <div class="small"><p>15+ years transforming corporate India</p></div>
+          <div class="small">
+            <p>15+ years transforming corporate India</p>
+          </div>
         </div>
       </div>
 
     </div>
   </aside>
-</main>
 
+</main>
 
 <!-- ABOUT SECTION -->
 <section class="about" aria-labelledby="about-title">
@@ -137,12 +142,12 @@
   <div class="about-card fade-up" style="--delay:.2s">
 
     <div class="about-image-wrapper" aria-hidden="false">
-
-      <!-- ⭐ Replaced IMG with VIDEO ⭐ -->
-      <video class="about-video" autoplay muted loop playsinline>
-        <source src="videos/video2.mp4" type="video/mp4">
-      </video>
-
+      <!-- ⭐ PHOTO INSTEAD OF VIDEO ⭐ -->
+      <img 
+        src="images/mam2.png" 
+        alt="Dr. Saumya Tripathi - Corporate Trainer"
+        class="about-image"
+      >
     </div>
 
     <div class="about-stats">
@@ -158,7 +163,6 @@
 
       <div class="stat-item fade-up" style="--delay:.40s">
         <h3>Excellent</h3>
-        <!-- <p>Excellent</p> -->
       </div>
 
       <div class="about-countdown fade-up" style="--delay:.46s" aria-live="polite"></div>
@@ -422,40 +426,59 @@
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const videos = document.querySelectorAll(".video-wrapper video");
-    const buttons = document.querySelectorAll(".sound-toggle");
+  /* ===============================
+     AUTO SCROLL + VIDEO CONTROL
+  ================================ */
+  const showcase = document.querySelector('.video-showcase');
+  const videos = document.querySelectorAll('.video-wrapper video');
+  const toggles = document.querySelectorAll('.sound-toggle');
   
-    buttons.forEach((btn, index) => {
-      btn.addEventListener("click", () => {
-        const video = videos[index];
-        const mutedIcon = btn.querySelector(".muted-icon");
-        const unmutedIcon = btn.querySelector(".unmuted-icon");
+  /* Pause auto-scroll & play selected video */
+  videos.forEach(video => {
+    video.addEventListener('click', () => {
+      showcase.classList.add('paused');
   
-        // Mute all other videos
-        videos.forEach((v, i) => {
-          if (i !== index) {
-            v.muted = true;
-            buttons[i].querySelector(".muted-icon").style.display = "block";
-            buttons[i].querySelector(".unmuted-icon").style.display = "none";
-          }
-        });
-  
-        // Toggle this video audio
-        if (video.muted) {
-          video.muted = false;
-          mutedIcon.style.display = "none";
-          unmutedIcon.style.display = "block";
-        } else {
-          video.muted = true;
-          mutedIcon.style.display = "block";
-          unmutedIcon.style.display = "none";
+      videos.forEach(v => {
+        if (v !== video) {
+          v.pause();
+          v.muted = true;
         }
       });
+  
+      video.muted = false;
+      video.play();
+    });
+  });
+  
+  /* Resume auto-scroll when clicking outside */
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.video-card')) {
+      showcase.classList.remove('paused');
+  
+      videos.forEach(v => {
+        v.pause();
+        v.muted = true;
+      });
+    }
+  });
+  
+  /* Sound toggle logic */
+  toggles.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+  
+      const video = btn.closest('.video-wrapper').querySelector('video');
+      const mutedIcon = btn.querySelector('.muted-icon');
+      const unmutedIcon = btn.querySelector('.unmuted-icon');
+  
+      video.muted = !video.muted;
+  
+      mutedIcon.style.display = video.muted ? 'block' : 'none';
+      unmutedIcon.style.display = video.muted ? 'none' : 'block';
     });
   });
   </script>
-
+  
 
 
 
