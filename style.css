@@ -3552,3 +3552,94 @@ h4 {
     height: 420px;
   }
 }
+.logo-img {
+  width: 280px;     /* increase width */
+  height: auto;     /* keeps aspect ratio */
+}
+.logo-section {
+  height: 900px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 1000px;        /* 👈 increase visibility */
+  height: auto;
+  object-fit: contain;
+}
+header,
+.navbar {
+  min-height: 80px;   /* adjust if needed */
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.15));
+}
+/* ===============================
+   DESKTOP NAVBAR – BIG VERSION
+   =============================== */
+   @media (min-width: 1024px) {
+
+    /* Navbar height */
+    .navbar {
+      min-height: 120px;
+      padding: 0 60px;
+    }
+  
+    /* Logo size */
+    .logo-img {
+      width: 220px;        /* increase as needed */
+      height: auto;
+      max-height: 90px;
+    }
+  
+    /* Navigation links */
+    .nav-links a {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 18px;
+    }
+  
+    /* Phone number */
+    .nav-phone {
+      font-size: 20px;
+      padding: 10px 18px;
+    }
+  
+    /* CTA button (Book Consultation) */
+    .desktop-btn {
+      font-size: 18px;
+      padding: 16px 30px;
+      border-radius: 10px;
+    }
+  
+    /* Increase spacing between sections */
+    .nav-links {
+      gap: 24px;
+    }
+  }
+  /* ===============================
+   EXTRA HUGE LOGO – DESKTOP ONLY
+   =============================== */
+@media (min-width: 1024px) {
+
+  .navbar {
+    min-height: 120px;       /* taller navbar */
+    padding: 0 70px;
+  }
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 320px;            /* 🔥 EXTRA HUGE */
+    max-width: 360px;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+  }
+}
