@@ -3643,3 +3643,314 @@ header,
     object-fit: contain;
   }
 }
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 6%;
+  background:
+    url("images/mam1.png") no-repeat right center / contain;
+  background-color: #0a0f1c;
+  overflow: hidden;
+}
+
+/* Overlay for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 15, 28, 0.95) 40%,
+    rgba(10, 15, 28, 0.7) 60%,
+    rgba(10, 15, 28, 0.3) 100%
+  );
+  z-index: 1;
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  color: #fff;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Heading */
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.accent-word {
+  color: #5da9ff;
+}
+
+/* CTA */
+.cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.6rem;
+  background: #5da9ff;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Metrics */
+.metrics {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.metric {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.metric span {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Profile Card */
+.profile-card {
+  margin-top: 2.5rem;
+  background: rgba(255,255,255,0.08);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  max-width: 300px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .hero {
+    background-position: center bottom;
+    background-size: cover;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 15, 28, 0.95) 0%,
+      rgba(10, 15, 28, 0.85) 60%,
+      rgba(10, 15, 28, 0.6) 100%
+    );
+  }
+
+  .metrics {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+.accent-word {
+  color: #D4AF37;
+}
+.cta-btn {
+  background: linear-gradient(135deg, #E6C86E, #D4AF37);
+  color: #0a0f1c;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #F0D98A, #C9A227);
+  transform: translateY(-2px);
+}
+.badge {
+  background: rgba(212, 175, 55, 0.12);
+  color: #E6C86E;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+.metric {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #E6C86E;
+}
+
+.metric span {
+  color: rgba(255, 255, 255, 0.7);
+}
+.hero h1 {
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.12);
+}
+.accent-word {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    120deg,
+    #b8962e 0%,
+    #f5e7a1 25%,
+    #d4af37 50%,
+    #f5e7a1 75%,
+    #b8962e 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3.5s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* =========================
+   IMPACT SECTION
+========================= */
+.impact {
+  position: relative;
+  padding: 6rem 6%;
+  text-align: center;
+  background: radial-gradient(
+    circle at top,
+    rgba(212,175,55,0.08),
+    transparent 60%
+  );
+  overflow: hidden;
+}
+
+.impact-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(212,175,55,0.25), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(212,175,55,0.18), transparent 45%);
+  filter: blur(90px);
+  animation: glowMove 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes glowMove {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-40px); }
+}
+
+.impact h2 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.impact h2 span {
+  color: #d4af37;
+  text-shadow: 0 0 30px rgba(212,175,55,0.25);
+}
+
+/* =========================
+   GRID
+========================= */
+.impact-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+/* =========================
+   IMPACT CARD
+========================= */
+.impact-card {
+  position: relative;
+  padding: 3rem 2rem;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.45s ease;
+  overflow: hidden;
+}
+
+/* Animated gold ring */
+.impact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(120deg, transparent, #d4af37, transparent) border-box;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+/* Hover lift */
+.impact-card:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow: 0 30px 70px rgba(212,175,55,0.35);
+}
+
+.impact-card:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+   NUMBER STYLE
+========================= */
+.impact-card h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e6c86e;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 20px rgba(212,175,55,0.35);
+}
+
+.impact-card p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* =========================
+   FADE-UP
+========================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+.delay-4 { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 900px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

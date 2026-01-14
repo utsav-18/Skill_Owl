@@ -61,17 +61,15 @@
       <a href="tel:+918400666686" class="nav-phone">+91 8400666686</a>
   </nav>
 
-  <a class="btn-gold desktop-btn cta-btn" id="book" href="contact.html">
-      Book Consultation
-  </a>
+  
 </header>
 
 
 
 <main class="hero" id="home">
+  <div class="hero-overlay"></div>
 
-  <!-- LEFT -->
-  <section class="hero-left">
+  <section class="hero-content">
     <div class="badge">Trusted by Leading MNCs</div>
 
     <h1>
@@ -94,35 +92,10 @@
       <div class="metric">95% <span>Satisfaction</span></div>
       <div class="metric">40+ <span>Corporate Clients</span></div>
     </div>
+
+    <!-- optional profile card -->
+  
   </section>
-
-  <!-- RIGHT -->
-  <aside class="hero-right">
-    <div class="image-frame">
-
-      <!-- IMAGE -->
-      <img
-        src="images/mam1.png"
-        alt="Dr. Saumya Tripathi – Corporate Training Expert"
-        class="hero-image"
-      >
-
-      <!-- PROFILE CARD -->
-      <div class="profile-card">
-        <div class="profile-meta">
-          <div class="name">
-            <p>Dr. Saumya Tripathi</p>
-          </div>
-          <div class="title">Leadership Development Expert</div>
-          <div class="small">
-            <p>15+ years transforming corporate India</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </aside>
-
 </main>
 
 <!-- ABOUT SECTION -->
@@ -170,6 +143,8 @@
   </div>
 </section>
 
+
+
 <!-- ACHIEVEMENTS -->
 <section class="impact">
     <div class="impact-glow"></div>
@@ -180,21 +155,41 @@
        
 
         <div class="impact-card fade-up delay-2">
-            <h3>85%</h3>
+            <h3 data-target="85">0%</h3>
             <p>Satisfaction Rate</p>
         </div>
 
         <div class="impact-card fade-up delay-3">
-            <h3>40%</h3>
+            <h3 data-target="40">0%</h3>
             <p>Productivity Boost</p>
         </div>
 
         <div class="impact-card fade-up delay-4">
-            <h3>500+</h3>
+            <h3 data-target="500">0+</h3>
             <p>Employees Trained</p>
         </div>
     </div>
 </section>
+<script>
+  const impactNumbers = document.querySelectorAll('.impact-card h3[data-target]');
+  
+  impactNumbers.forEach(num => {
+    const target = +num.dataset.target;
+    let count = 0;
+    const speed = target / 60;
+  
+    const update = () => {
+      count += speed;
+      if (count < target) {
+        num.innerText = Math.floor(count) + (num.innerText.includes('%') ? '%' : '+');
+        requestAnimationFrame(update);
+      } else {
+        num.innerText = target + (num.innerText.includes('%') ? '%' : '+');
+      }
+    };
+    update();
+  });
+  </script>
   
  <!-- what i offer section -->
 
